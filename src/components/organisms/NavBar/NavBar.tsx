@@ -25,34 +25,24 @@ const NavItem = styled.li`
   color: #edf0f1;
   text-decoration: none;
 `
-
-const Link = styled.a`
-  font-weight: 500;
-  font-size: 1rem;
-  color: #edf0f1;
-  text-decoration: none;
-  transition: all 0.3s ease 0s;
-  &:hover {
-    color: #0088a9;
-  }
-`
-
 const NavBar: React.FC<NavBarProps> = ({}: NavBarProps) => (
   <StyledNavBar>
     <Nav>
       <NavList>
         <NavItem>
-          <Link href='#'>Services</Link>
+          <Button href='#'>Services</Button>
         </NavItem>
         <NavItem>
-          <Link href='#'>Projects</Link>
+          <Button href='#'>Projects</Button>
         </NavItem>
         <NavItem>
-          <Link href='#'>About</Link>
+          <Button href='#'>About</Button>
         </NavItem>
       </NavList>
     </Nav>
-    <Button href='#'>Contact</Button>
+    <Button variant='primary' href='#'>
+      Contact
+    </Button>
   </StyledNavBar>
 )
 
