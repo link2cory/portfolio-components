@@ -15,8 +15,6 @@ const SwatchList: React.FC<SwatchListProps> = ({
     .filter((key) => key.startsWith(hue))
     .map((key) => <Swatch key={key} color={key as Color} />)
 
-  console.log(children)
-
   return <StyledSwatchList>{children}</StyledSwatchList>
 }
 
