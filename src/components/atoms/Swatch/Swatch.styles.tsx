@@ -6,8 +6,8 @@ const StyledSwatch =
   StyledSwatchProps >
   `
   background-color: ${(props) => props.theme.colors[props.color]};
-  height: 100px;
-  min-width: 0;
+  height: 500px;
+  min-height: 0;
   flex: 1 1 auto;
 `
 
