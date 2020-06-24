@@ -1,7 +1,7 @@
 import React from 'react'
 import { withTheme } from 'styled-components'
 
-import { Color } from '../../../theme/interfaces'
+import { Color, Shade } from '../../../theme/interfaces'
 import Swatch from '../../atoms/Swatch'
 
 import { SwatchListProps } from './interfaces'
@@ -11,9 +11,8 @@ const SwatchList: React.FC<SwatchListProps> = ({
   theme,
   hue,
 }: SwatchListProps) => {
-  const children = Object.keys(theme.colors)
-    .filter((key) => key.startsWith(hue))
-    .map((key) => <Swatch key={key} color={key as Color} />)
+  const children = Object.keys(theme.colors[hue])
+    .map((key) => <Swatch key={key} hue={hue} shade={key as Shade} />)
 
   return <StyledSwatchList>{children}</StyledSwatchList>
 }

@@ -11,6 +11,8 @@ export default {
 
 export const SwatchDefaultProps: SwatchProps = {
   color: 'gray-500',
+  hue: 'gray',
+  shade: '500',
 }
 
 export const DefaultStory = () => <Swatch {...SwatchDefaultProps} />

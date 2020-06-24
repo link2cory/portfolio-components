@@ -1,5 +1,10 @@
+import { Hue } from '../../../theme'
+import { Shade } from '../../../theme/interfaces'
+
 interface SwatchProps {
   color: ColorGray | ColorPrimary;
+  hue: Hue;
+  shade: Shade;
 }
 
 type ColorGray =

@@ -13,26 +13,25 @@ const resolveVariant = (props: StyledButtonProps) => {
 
   switch (props.variant) {
     case 'primary':
-      backgroundColor = 'gray-700'
-      backgroundColorHover = 'gray-600'
-      contentColor = 'gray-400'
-      contentColorHover = 'gray-100'
+      backgroundColor = props.theme.colors.gray['700']
+      backgroundColorHover = props.theme.colors.gray['600']
+      contentColor = props.theme.colors.gray['400']
+      contentColorHover = props.theme.colors.gray['100']
       tag = 'button'
       break
     case 'secondary':
       return {
-        backgroundColor: 'translucent',
-        backgroundColorHover: 'gray-900',
-        contentColor: 'gray-400',
-        contentColorHover: 'gray-100',
+        backgroundColor: props.theme.colors.transparent,
+        backgroundColorHover: props.theme.colors.gray['900'],
+        contentColor: props.theme.colors.gray['400'],
+        contentColorHover: props.theme.colors.gray['100'],
         tag: 'button',
       }
-
     default:
-      backgroundColor = 'transparent'
-      backgroundColorHover = 'transparent'
-      contentColor = 'gray-400'
-      contentColorHover = 'gray-100'
+      backgroundColor = props.theme.colors.transparent
+      backgroundColorHover = props.theme.colors.transparent
+      contentColor = props.theme.colors.gray['400']
+      contentColorHover = props.theme.colors.gray['100']
       tag = 'a'
   }
 
@@ -57,19 +56,18 @@ const StyledButton =
   `
   font-weight: 500;
   font-size: 1rem;
-  color: ${(props) => props.theme.colors[props.contentColor]};
+  color: ${(props) => props.contentColor};
   text-decoration: none;
   transition: all 0.3s ease 0s;
   padding: 9px 25px;
-  background-color: ${(props) => props.theme.colors[props.backgroundColor]};
+  background-color: ${(props) => props.backgroundColor};
   border: none;
   border-radius: 50px;
   cursor: pointer;
 
   &:hover {
-    background-color: ${(props) =>
-      props.theme.colors[props.backgroundColorHover]};
-    color: ${(props) => props.theme.colors[props.contentColorHover]};
+    background-color: ${(props) => props.backgroundColorHover};
+    color: ${(props) => props.contentColorHover};
   }
 `
 

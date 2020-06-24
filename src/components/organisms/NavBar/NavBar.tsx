@@ -8,7 +8,7 @@ const StyledNavBar = styled.header`
   justify-content: end;
   align-items: center;
   padding: 30px 10%;
-  background-color: ${(props) => props.theme.colors['gray-900']};
+  background-color: ${(props) => props.theme.colors.gray['900']};
 `
 
 const Nav = styled.nav``
