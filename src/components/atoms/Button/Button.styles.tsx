@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import { Color } from '../../../theme/interfaces'
+import { ButtonProps } from './interfaces'
 
 const fontSize = {
   sm: '0.5rem',
@@ -6,39 +8,66 @@ const fontSize = {
   lg: '1.5rem',
 }
 
-const resolveDynamicProps = (props) => {
-  const dynamicBackgroundColor =
-    props.variant === 'primary' ? 'rgba(0, 136, 169, 1)' : 'rgba(0, 0, 0, 0)'
-  const dynamicBackgroundColorOnHover =
-    props.variant === 'primary' ? 'rgba(0, 136, 169, 0.8)' : 'rgba(0, 0, 0, 0)'
-  const dynamicColorOnHover =
-    props.variant === 'primary' ? '#edf0f1' : '#0088a9'
-  const as = props.variant === 'primary' ? 'button' : 'a'
+type ButtonTag = 'a' | 'button'
+
+const resolveVariant = (props: ButtonProps) => {
+  let backgroundColor: Color
+  let backgroundColorHover: Color
+  let contentColor: Color
+  let contentColorHover: Color
+  let tag: ButtonTag
+
+  switch (props.variant) {
+    case 'primary':
+      backgroundColor = 'gray-700'
+      backgroundColorHover = 'gray-600'
+      contentColor = 'gray-400'
+      contentColorHover = 'gray-100'
+
+      tag = 'button'
+      break
+
+    default:
+      backgroundColor = 'transparent'
+      backgroundColorHover = 'transparent'
+      contentColor = 'gray-400'
+      contentColorHover = 'gray-100'
+
+      tag = 'a'
+  }
 
   return {
-    dynamicBackgroundColor,
-    dynamicBackgroundColorOnHover,
-    dynamicColorOnHover,
-    as,
+    backgroundColor,
+    backgroundColorHover,
+    contentColor,
+    contentColorHover,
+    as: tag,
   }
 }
 
-const StyledButton = styled.button.attrs((props) => resolveDynamicProps(props))`
+const resolveDynamicProps = (props) => ({
+  ...resolveVariant(props),
+})
+
+const StyledButton = styled.button.attrs((props: ButtonProps) =>
+  resolveDynamicProps(props)
+)`
   font-weight: 500;
   font-size: ${(props) => fontSize[props.fontSize] || fontSize.default};
-  color: #edf0f1;
+  color: ${(props) => props.theme.colors[props.contentColor]};
   text-decoration: none;
   transition: all 0.3s ease 0s;
 
   padding: 9px 25px;
-  background-color: ${(props) => props.dynamicBackgroundColor};
+  background-color: ${(props) => props.theme.colors[props.backgroundColor]};
   border: none;
   border-radius: 50px;
   cursor: pointer;
 
   &:hover {
-    background-color: ${(props) => props.dynamicBackgroundColorOnHover};
-    color: ${(props) => props.dynamicColorOnHover};
+    background-color: ${(props) =>
+      props.theme.colors[props.backgroundColorHover]};
+    color: ${(props) => props.theme.colors[props.contentColorHover]};
   }
 `
 

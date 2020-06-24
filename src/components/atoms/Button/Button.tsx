@@ -7,7 +7,7 @@ const Button: React.FC<ButtonProps> = ({
   variant,
   fontSize,
 }: React.PropsWithChildren<ButtonProps>) => (
-  <StyledButton variant={variant || 'none'} fontSize={fontSize}>
+  <StyledButton variant={variant || 'default'} fontSize={fontSize}>
     {children}
   </StyledButton>
 )

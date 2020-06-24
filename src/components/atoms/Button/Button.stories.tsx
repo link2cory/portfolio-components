@@ -15,3 +15,7 @@ export const ButtonDefaultProps: ButtonProps = {}
 export const DefaultStory = () => (
   <Button {...ButtonDefaultProps}>Click Me!</Button>
 )
+
+export const PrimaryButtonStory = () => (
+  <Button variant='primary'>Primary Button</Button>
+)
