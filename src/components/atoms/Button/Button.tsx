@@ -4,12 +4,10 @@ import StyledButton from './Button.styles'
 
 const Button: React.FC<ButtonProps> = ({
   children,
-  variant,
+  primary,
   fontSize,
 }: React.PropsWithChildren<ButtonProps>) => (
-  <StyledButton variant={variant || 'default'} fontSize={fontSize}>
-    {children}
-  </StyledButton>
+  <StyledButton primary={primary}>{children}</StyledButton>
 )
 
 export default Button
