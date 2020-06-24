@@ -1,6 +1,7 @@
 interface ButtonProps {
   variant?: ButtonVariant;
   fontSize?: FontSize;
+  href?: string;
 }
 
 export type ButtonVariant = 'primary' | 'secondary' | 'default'
