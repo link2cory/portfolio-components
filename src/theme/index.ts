@@ -1,4 +1,4 @@
 import theme from './theme'
 
-export { ColorGray, ColorPrimary } from './interfaces'
+export { ColorGray, ColorPrimary, Hue } from './interfaces'
 export default theme

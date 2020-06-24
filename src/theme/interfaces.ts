@@ -19,3 +19,11 @@ export type ColorPrimary =
   | 'primary-700'
   | 'primary-800'
   | 'primary-900'
+
+export type Hue = 'gray' | 'primary'
+
+export type Color = ColorGray | ColorPrimary | 'transparent'
+
+export interface iTheme {
+  colors: Record<Color, string>;
+}
