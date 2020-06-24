@@ -8,7 +8,7 @@ const StyledNavBar = styled.header`
   justify-content: end;
   align-items: center;
   padding: 30px 10%;
-  background-color: #24252a;
+  background-color: ${(props) => props.theme.colors['gray-900']};
 `
 
 const Nav = styled.nav``
@@ -22,7 +22,6 @@ const NavItem = styled.li`
   padding: 0px 20px;
   font-weight: 500;
   font-size: 1rem;
-  color: #edf0f1;
   text-decoration: none;
 `
 const NavBar: React.FC<NavBarProps> = ({}: NavBarProps) => (
