@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 import { Color } from '../../../theme/interfaces'
-import { ButtonProps } from './interfaces'
+import { StyledButtonProps } from './interfaces'
 
 type ButtonTag = 'a' | 'button'
 
-const resolveVariant = (props: ButtonProps) => {
+const resolveVariant = (props: StyledButtonProps) => {
   let backgroundColor: Color
   let backgroundColorHover: Color
   let contentColor: Color
@@ -45,13 +45,15 @@ const resolveVariant = (props: ButtonProps) => {
   }
 }
 
-const resolveDynamicProps = (props: ButtonProps) => ({
+const resolveDynamicProps = (props: StyledButtonProps) => ({
   ...resolveVariant(props),
 })
 
 const StyledButton =
-  styled.button.attrs((props: ButtonProps) => resolveDynamicProps(props)) <
-  ButtonProps >
+  styled.button.attrs((props: StyledButtonProps) =>
+    resolveDynamicProps(props)
+  ) <
+  StyledButtonProps >
   `
   font-weight: 500;
   font-size: 1rem;
