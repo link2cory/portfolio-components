@@ -11,9 +11,7 @@ const resolveVariant = (props: ButtonProps) => {
   let contentColorHover: Color
   let tag: ButtonTag
 
-  const variant = props.primary ? 'primary' : 'default'
-
-  switch (variant) {
+  switch (props.variant) {
     case 'primary':
       backgroundColor = 'gray-700'
       backgroundColorHover = 'gray-600'
@@ -21,6 +19,15 @@ const resolveVariant = (props: ButtonProps) => {
       contentColorHover = 'gray-100'
       tag = 'button'
       break
+    case 'secondary':
+      return {
+        backgroundColor: 'translucent',
+        backgroundColorHover: 'gray-900',
+        contentColor: 'gray-400',
+        contentColorHover: 'gray-100',
+        tag: 'button',
+      }
+
     default:
       backgroundColor = 'transparent'
       backgroundColorHover = 'transparent'
