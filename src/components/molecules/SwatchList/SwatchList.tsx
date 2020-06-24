@@ -1,7 +1,7 @@
 import React from 'react'
 import { withTheme } from 'styled-components'
 
-import Color from '../../../theme/interfaces'
+import { Color } from '../../../theme/interfaces'
 import Swatch from '../../atoms/Swatch'
 
 import { SwatchListProps } from './interfaces'
